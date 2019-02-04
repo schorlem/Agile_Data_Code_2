@@ -56,45 +56,45 @@ sudo update-motd
 #
 # Install Java and setup ENV
 #
-echo "Installing and configuring Java 8 from Oracle ..." | tee -a $LOG_FILE
-sudo add-apt-repository -y ppa:webupd8team/java
-sudo apt-get update
-echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
-sudo apt-get install -y oracle-java8-installer oracle-java8-set-default
-
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" | sudo tee -a /home/ubuntu/.bash_profile
-
+# echo "Installing and configuring Java 8 from Oracle ..." | tee -a $LOG_FILE
+# sudo add-apt-repository -y ppa:webupd8team/java
+# sudo apt-get update
+# echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
+# sudo apt-get install -y oracle-java8-installer oracle-java8-set-default
+# 
+# export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+# echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" | sudo tee -a /home/ubuntu/.bash_profile
+# 
 #
 # Install Miniconda
 #
-echo "Installing and configuring miniconda3 latest ..." | tee -a $LOG_FILE
-curl -Lko /tmp/Miniconda3-latest-Linux-x86_64.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-chmod +x /tmp/Miniconda3-latest-Linux-x86_64.sh
-/tmp/Miniconda3-latest-Linux-x86_64.sh -b -p /home/ubuntu/anaconda
-
-export PATH=/home/ubuntu/anaconda/bin:$PATH
-echo 'export PATH=/home/ubuntu/anaconda/bin:$PATH' | sudo tee -a /home/ubuntu/.bash_profile
-
-sudo chown -R ubuntu /home/ubuntu/anaconda
-sudo chgrp -R ubuntu /home/ubuntu/anaconda
-
+# echo "Installing and configuring miniconda3 latest ..." | tee -a $LOG_FILE
+# curl -Lko /tmp/Miniconda3-latest-Linux-x86_64.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+# chmod +x /tmp/Miniconda3-latest-Linux-x86_64.sh
+# /tmp/Miniconda3-latest-Linux-x86_64.sh -b -p /home/ubuntu/anaconda
+# 
+# export PATH=/home/ubuntu/anaconda/bin:$PATH
+# echo 'export PATH=/home/ubuntu/anaconda/bin:$PATH' | sudo tee -a /home/ubuntu/.bash_profile
+# 
+# sudo chown -R ubuntu /home/ubuntu/anaconda
+# sudo chgrp -R ubuntu /home/ubuntu/anaconda
+# 
 #
 # Install Clone repo, install Python dependencies
 #
-echo "Cloning https://github.com/rjurney/Agile_Data_Code_2 repository and installing dependencies ..." \
-  | tee -a $LOG_FILE
-cd /home/ubuntu
-git clone https://github.com/rjurney/Agile_Data_Code_2
-cd /home/ubuntu/Agile_Data_Code_2
-export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2
-echo "export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2" | sudo tee -a /home/ubuntu/.bash_profile
-conda install -y python=3.5
-conda install -y iso8601 numpy scipy scikit-learn matplotlib ipython jupyter
-pip install -r requirements.txt
-sudo chown -R ubuntu /home/ubuntu/Agile_Data_Code_2
-sudo chgrp -R ubuntu /home/ubuntu/Agile_Data_Code_2
-cd /home/ubuntu
+# echo "Cloning https://github.com/rjurney/Agile_Data_Code_2 repository and installing dependencies ..." \
+#   | tee -a $LOG_FILE
+# cd /home/ubuntu
+# git clone https://github.com/rjurney/Agile_Data_Code_2
+# cd /home/ubuntu/Agile_Data_Code_2
+# export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2
+# echo "export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2" | sudo tee -a /home/ubuntu/.bash_profile
+# conda install -y python=3.5
+# conda install -y iso8601 numpy scipy scikit-learn matplotlib ipython jupyter
+# pip install -r requirements.txt
+# sudo chown -R ubuntu /home/ubuntu/Agile_Data_Code_2
+# sudo chgrp -R ubuntu /home/ubuntu/Agile_Data_Code_2
+# cd /home/ubuntu
 
 # Install commons-httpclient
 curl -Lko /home/ubuntu/Agile_Data_Code_2/lib/commons-httpclient-3.1.jar http://central.maven.org/maven2/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar
@@ -296,7 +296,7 @@ sudo -H -u ubuntu /home/ubuntu/kafka/bin/kafka-server-start.sh -daemon /home/ubu
 #
 echo "" | tee -a $LOG_FILE
 echo "Installing Airflow via pip ..." | tee -a $LOG_FILE
-pip install airflow[hive]
+pip install apache-airflow[hive]
 mkdir /home/ubuntu/airflow
 mkdir /home/ubuntu/airflow/dags
 mkdir /home/ubuntu/airflow/logs
