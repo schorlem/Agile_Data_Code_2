@@ -120,13 +120,13 @@ def search_flights():
       'bool': {
         'must': []}
     },
-    'sort': [
-      {'FlightDate': {'order': 'asc', 'ignore_unmapped' : True} },
-      {'DepTime': {'order': 'asc', 'ignore_unmapped' : True} },
-      {'Carrier': {'order': 'asc', 'ignore_unmapped' : True} },
-      {'FlightNum': {'order': 'asc', 'ignore_unmapped' : True} },
-      '_score'
-    ],
+    #'sort': [
+    #  {'FlightDate': {'order': 'asc', 'ignore_unmapped' : True} },
+    #  {'DepTime': {'order': 'asc', 'ignore_unmapped' : True} },
+    #  {'Carrier': {'order': 'asc', 'ignore_unmapped' : True} },
+    #  {'FlightNum': {'order': 'asc', 'ignore_unmapped' : True} },
+    #  '_score'
+    #],
     'from': start,
     'size': config.RECORDS_PER_PAGE
   }
