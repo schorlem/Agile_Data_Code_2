@@ -123,15 +123,15 @@ def search_airplanes():
       'bool': {
         'must': []}
     },
-    'sort': [
-      {'Owner': {'order': 'asc'} },
+    # 'sort': [
+      # {'Owner': {'order': 'asc'} },
       # {'Manufacturer': {'order': 'asc', 'ignore_unmapped' : True} },
       # {'Model': {'order': 'asc', 'ignore_unmapped': True} },
       # {'EngineManufacturer': {'order': 'asc', 'ignore_unmapped' : True} },
       # {'EngineModel': {'order': 'asc', 'ignore_unmapped': True} },
       # {'TailNum': {'order': 'asc', 'ignore_unmapped' : True} },
-      '_score'
-    ],
+      # '_score'
+    # ],
     'from': start,
     'size': config.AIRPLANE_RECORDS_PER_PAGE
   }
