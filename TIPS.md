@@ -48,4 +48,4 @@ In chapter 6 resolve_airplane_manufacturer fails due to spark bug. Resolution he
 
 ```
 spark.conf.set("spark.sql.crossJoin.enabled", "true")
-```kkkkkkK
+```
